@@ -1,0 +1,132 @@
+/*
+ *
+ *      MAIN STYLE SHEET
+ *
+ */
+
+
+/*==========================
+            INDEX
+===========================*/
+
+/*
+    1- GENERAL STYLES
+    2- NAVBAR AND FOOTER
+    3- LOGIN SCREEN
+    4- INBOX SCREEN
+ */
+
+
+/*===================================
+            GENERAL STYLES
+=====================================*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    background-color: #F2F2F2;
+}
+
+
+
+.wrapper{
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: #F2F2F2;
+    padding-bottom:100px;
+}
+
+.main-content {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/*===================================
+            NAVBAR AND FOOTER
+=====================================*/
+/*HEADER*/
+.header-main{
+    background: #01467D;
+    border-bottom:3px inset #6897D8;
+}
+
+.header-brand img{
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.header-main span{
+    color: #FFFFFF;
+    margin-left: 15px;
+    vertical-align: middle;
+    font-size: 2vw;
+}
+
+/*NAV BAR*/
+
+.navbar-nav > li > a{
+    color: #FFFFFF;
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+    }
+    
+.navbar{
+    min-height:32px !important;
+    }
+
+#nav-main a:hover {
+    color: #01467D;
+}
+
+#nav-main li.active a {
+    font-weight: 700;
+    color: #6897D8;
+}
+
+#nav-main {
+    background: rgb(60,93,134); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(60,93,134,1) 61%, rgba(86,125,180,1) 83%, rgba(60,93,134,1) 93%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(60,93,134,1) 61%,rgba(86,125,180,1) 83%,rgba(60,93,134,1) 93%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(60,93,134,1) 61%,rgba(86,125,180,1) 83%,rgba(60,93,134,1) 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c5d86', endColorstr='#3c5d86',GradientType=0 ); /* IE6-9 */
+}
+
+#bootstrap-nav {
+    max-width: 100%;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+/*FOOTER*/
+.main-footer{
+    border-top:5px outset #6897D8;
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100px;
+    background-color: #01467D;
+    color: #F5F5F7;   
+    }
+
+.app-info{
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    margin: 15px 0;
+    
+}
+
+
