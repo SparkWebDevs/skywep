@@ -23,9 +23,10 @@ include 'filtersToolbar.php';
     </div>
     
     <div class="grid-view">
+            <span>View:</span>
             <input type="radio" name="view"> <span>General</span>
             <input type="radio" name="view"> <span>Engineering</span>
-            <input type="radio" name="view"> <span>General</span>
+            <input type="radio" name="view"> <span>Other</span>
             <input type="checkbox"> <span>Show Pending With</span>
             <input type="checkbox"> <span>Other</span> 
     </div>

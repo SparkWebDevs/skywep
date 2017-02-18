@@ -4,7 +4,7 @@
             <div class="first-filters-row">
                 <div class="filter-option-cont">
                     <label>My Inbox</label><br>
-                        <select class="dropdown">
+                        <select class="dropdown" id="inbox-f">
                             <option value="-1">Select</option>
                             <option value="1">Engineering</option>
                             <option value="2">All</option>
@@ -13,12 +13,12 @@
                 
                 <div class="filter-option-cont">
                     <label>Request #</label><br>
-                        <input type="text" placeholder="Number of Request"/>
+                        <input type="text" placeholder="Number of Request" id="request-f"/>
                 </div>
                 
                  <div class="filter-option-cont">
                     <label>Status</label><br>
-                        <select class="dropdown">
+                        <select class="dropdown" id="status-f">
                             <option value="-1">Select</option>
                             <option value="1">Approved</option>
                             <option value="2">Waiting</option>
@@ -28,7 +28,7 @@
                  
                  <div class="filter-option-cont">
                     <label>Pending With</label><br>
-                        <select class="dropdown">
+                        <select class="dropdown" id="pending-f">
                             <option value="-1">Select</option>
                             <option value="1">Anabel Aleman</option>
                             <option value="2">Erick Bravo</option>
@@ -38,7 +38,7 @@
                  
                  <div class="filter-option-cont">
                     <label>Request Type</label><br>
-                        <select class="dropdown">
+                        <select class="dropdown" id="request-type-f">
                             <option value="-1">Select</option>
                             <option value="1">Shipping Container</option>
                             <option value="2">Tooling</option>
@@ -50,12 +50,12 @@
             <div class="second-filters-row">
                 <div class="filter-option-cont">
                     <label>Requester</label><br>
-                        <input type="text" placeholder="Requester Name"/>
+                        <input type="text" placeholder="Requester Name" id="requester-f"/>
                 </div>
                 
                  <div class="filter-option-cont">
                     <label>Customer</label><br>
-                        <select class="dropdown">
+                        <select class="dropdown" id="customer-f">
                             <option value="-1">Select</option>
                             <option value="1">Nintendo</option>
                             <option value="2">Google</option>
@@ -66,7 +66,7 @@
             
                 <div class="filter-controls">
                     <button class="filter-btn btn">Filter</button>
-                    <button class="filter-btn btn">Reset</button>
+                    <button class="filter-btn btn" onclick="removeFilters();">Reset</button>
                 </div>
         </div>
         
@@ -103,7 +103,6 @@
     </div>
     
     <script>
-    
     flatpickr("#submittedAfter", {
         wrap: true,
         clickOpens: false
