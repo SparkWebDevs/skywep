@@ -6,6 +6,7 @@ define(["require", "exports"], function (require, exports) {
         for (var i = 0; i < numberOfRows; i++) {
             var row = {};
             row["requestId"] =  i;
+            row["packageSize"] =  "1.0X4.0X0.9";
             row["originator"] =  "Javier";
             row["product"] =  "Skyeng";
             row["submitedDate"] =  randomDate(new Date(2000, 1, 1), new Date());

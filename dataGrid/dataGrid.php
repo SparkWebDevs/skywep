@@ -2,14 +2,11 @@
     <style>
         .dataGrid {
             position: relative;
-            width: 1000px;
-            height: 600px;
-            margin: auto;
+            width: 1300px;
+            height: 400px;
+            margin: 20px auto;
         }
     </style>
-<div class="gridDebug">
-    <span class="comment-text"></span>
-</div>
 
    <div class="dataGrid">
     

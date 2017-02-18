@@ -13,14 +13,15 @@ define(["require", "exports", './GridController', './SampleData', './CurrencyMan
             __cm.setCurrencyInfo(new __cm.CurrencyInfo("EUR", "Euro", "€", "EUR", ""));
             // define the column definitions for the grid
             this._coldefs = [];
-            this._coldefs.push(new __gc.ColDefinition("requestId", "Request #", 100, "", "", "", "asc"));
-            this._coldefs.push(new __gc.ColDefinition("originator", "Originator", 150, "", "", "", ""));
+            this._coldefs.push(new __gc.ColDefinition("requestId", "Request #", 75, "", "", "", "asc","",true));
+            this._coldefs.push(new __gc.ColDefinition("packageSize", "PackageSize", 175, "", "", "", ""));
+            this._coldefs.push(new __gc.ColDefinition("originator", "Originator", 125, "", "", "", ""));
             this._coldefs.push(new __gc.ColDefinition("product", "Product", 150, "", "", "", ""));
-            this._coldefs.push(new __gc.ColDefinition("submitedDate", "Submited", 100, "date", "", "left", ""));
-            this._coldefs.push(new __gc.ColDefinition("status", "Status", 150, "", "", "", ""));
-            this._coldefs.push(new __gc.ColDefinition("customer", "Customer", 100, "", "", "", ""));
-            this._coldefs.push(new __gc.ColDefinition("buildDate", "1stBuild", 100, "date", "", "left", ""));
-            this._coldefs.push(new __gc.ColDefinition("type", "Type", 150, "", "", "", ""));
+            this._coldefs.push(new __gc.ColDefinition("submitedDate", "Submited", 125, "date", "", "left", ""));
+            this._coldefs.push(new __gc.ColDefinition("status", "Status", 175, "", "", "", ""));
+            this._coldefs.push(new __gc.ColDefinition("customer", "Customer", 175, "", "", "", ""));
+            this._coldefs.push(new __gc.ColDefinition("buildDate", "1stBuild", 125, "date", "", "left", ""));
+            this._coldefs.push(new __gc.ColDefinition("type", "Type", 200, "", "", "", ""));
         };
         // this call creates the grid and places it within the given DOM element
         GridClient.prototype.createGrid = function ($grid, $comment) {
@@ -30,19 +31,32 @@ define(["require", "exports", './GridController', './SampleData', './CurrencyMan
             // create a grid light controller
             this._gc = new __gc.GridController();
             this._gc.createGrid($grid);
+            
+            //ROW CALLBACKS
             // supply a callback to be informed when the user selects a row
             this._gc.cbSelectedDataItem = function (dataItem) {
-                $comment.text("Row selected - single click - code: " + dataItem.code);
+                console.log(dataItem);
+                $comment.text("Row selected - single click - rquest: " + dataItem.requestid);
             };
             // supply a callback to be informed when the user double clicks a row
             this._gc.cbSelectedDataItemDblClick = function (dataItem) {
-                $comment.text("Row selected - double click - code: " + dataItem.code);
+                $comment.text("Row selected - double click - request: " + dataItem.requestid);
             };
+            
+            // supply a callback to be informed when the user double clicks a row
+            this._gc.cbSelectedDataDetails = function (dataItem) {
+                console.log("here we can do something with the details that we got!");
+                _gc
+            };
+            
+            //SPECIAL COLUMNS STYLING
             this._gc.cbStyling = function (coldef, item) {
                 // define a new CellStyleProperties object we will return
                 var styleProp = new __gc.CellStyleProperies();
                  //now check which column is being checked and set any style properties appropriately 
-
+                if(coldef.colName == "details"){
+                    styleProp.imgName = "fa-plus";
+                }
                 return styleProp;
             };
         };

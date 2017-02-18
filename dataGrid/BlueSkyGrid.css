@@ -136,7 +136,8 @@
     white-space: nowrap;
     overflow: hidden;
     font-weight: bolder;
-    color: #707070;
+    background: #BCBCBC;
+    color: #000000;
 }
 
 
@@ -168,16 +169,17 @@
     border-top: 1px solid #F1F1F1;
     border-bottom: 1px solid #F1F1F1;
 }
-
+/*When hoovering on a row*/
 .bs-grid .row.flex-parent-row:hover > .cell {
-    background-color: rgba(201, 235, 220, 0.5);
+    background-color: #c0d5f7;
     font-weight: bold;
 }
 
+/*When a single row is selected*/
 .bs-grid .data .row.flex-parent-row.pk-selected > .cell {
-    background-color: orange;
-    border-top: 1px solid #ff7500;
-    border-bottom: 1px solid #ff7500;
+    background-color: #a5c1ef;
+    border-top: 1px solid #6897D8;
+    border-bottom: 1px solid #6897D8;
     font-weight: bold;
 }
 
@@ -212,7 +214,7 @@
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     font-size: 0.95em;
-
+    background: #DEDEDE;
     border-top: 1px solid rgba(87, 164, 20, 0.09);
     border-bottom: 1px solid rgba(0, 177, 255, 0.09);
 }

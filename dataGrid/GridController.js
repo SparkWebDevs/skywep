@@ -216,8 +216,13 @@ define(["require", "exports", './DataEngine', './CurrencyManager'], function (re
             // if origin was a double click and a handler is given then call it
             if (dblClickOrigin && self.cbSelectedDataItemDblClick)
                 self.cbSelectedDataItemDblClick(dataItem, origin);
+                
+             if (origin == "detailsClick" && self.cbSelectedDataDetails)
+                self.cbSelectedDataDetails(dataItem, origin);
         };
-        // attaches one-off event handlers to the grid skeleton
+        
+        
+        // attaches one-off event handlers to the grid skeleton EVENT HANDLERS
         GridController.prototype.attachDelegatedHandlers = function () {
             var cellHeader;
             var initialWidth = 0;
@@ -245,6 +250,13 @@ define(["require", "exports", './DataEngine', './CurrencyManager'], function (re
                 // and select that row
                 self.setSelected(pkvalue, true, "click");
             });
+            
+            $grid.on("click", ".detail-class", function (event) {
+                // get the pk value from the data- attribute
+                var pkvalue = $(this).parent().attr('data-pkvalue');
+                self.setSelected(pkvalue, true, "detailsClick");
+            });
+            
             // add row select functionality
             self.$resizemarker.on("dblclick", function (data) {
                 self.setFlexColumn(resizeColName); // set the chosen column to be the strechable one
@@ -352,6 +364,8 @@ define(["require", "exports", './DataEngine', './CurrencyManager'], function (re
                     self.$resizeline.css('left', ui.position.left + 3);
                 }
             });
+            
+            
         };
         // Called each time the header dom elements are re-created.
         // these are jQuery ui interactions that HAVE to be created AFTER the header dom elements are created
@@ -499,7 +513,7 @@ define(["require", "exports", './DataEngine', './CurrencyManager'], function (re
                     // ask the client to fill in any generic styling properties
                     var styleProp = self.cbStyling(coldef, dataItem);
                     // start Cell definition
-                    s += "<div class='cell cell-right-column " + (coldef.isFlexCol ? "stretchable" : "") + " " + coldef.classAlign + "' ";
+                    s += "<div class='cell cell-right-column "+(coldef.colName == "details" ? "detail-class" : "") + (coldef.isFlexCol ? "stretchable" : "") + " " + coldef.classAlign + "' ";
                     s += "data-sgcol='" + coldef.colName + "' style='width: " + coldef.width + "px; ";
                     // if a cell backcolour was given then apply it
                     if (styleProp.cellBackColour)

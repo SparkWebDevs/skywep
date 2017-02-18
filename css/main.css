@@ -48,6 +48,14 @@ body {
     overflow: hidden;
 }
 
+.section-title{
+    font-weight: bold;
+    width: 100%;
+    padding: 8px 0px 8px 10px;
+    background: #ABABAB;
+    margin: 10px 0px;
+}
+
 
 
 /*===================================
@@ -130,3 +138,123 @@ body {
 }
 
 
+/*===================================
+            MAIN TOOLBAR
+=====================================*/
+.filter-toolbar-cont{
+    display: inline-flex;
+}
+
+.filter-toolbar{
+    border: 2px solid #AAAAAA;
+    text-align: center;
+    margin: 20px auto;
+    width: 1300px;
+}
+
+.filters-cont, .filter-controls{
+    text-align: left;
+}
+
+.first-filters-row, .second-filters-row{
+    display: inline-flex;
+}
+
+.first-filters-row select,input, .second-filters-row select,input{
+    width: 175px;
+    height: 30px;
+}
+
+.dates-cont{
+    display: flex;
+}
+
+.build-date-cont, .submited-cont, .filter-option-cont, .filter-controls{
+    margin: 5px;
+}
+
+.dates-cont input{
+    width: 100px;
+    height: 30px;
+}
+
+.dates-cont span{
+    color: #000000;
+    height: 30px;
+}
+
+.dates-cont p{
+    background: #CDCDCD;
+    height: 30px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.filter-btn{
+    margin: 3px;
+    border: 1px solid #AAAAAA;
+    font-weight: bold;
+    width:125px;
+    background: #CDCDCD;
+}
+
+.filter-btn:hover{
+    background: #01467D;
+    color: #F2F2F2;
+}
+
+.datagrid-options-cont{
+    width: 1300px;
+    margin: 10px auto;
+}
+
+.grid-view,.new-req-cont,.grid-search{
+    margin: 5px 0px;
+}
+
+.grid-view input{
+    width: 15px;
+    height: 15px;
+}
+
+.grid-view span{
+    font-size: 15px;
+    margin-right: 20px;
+}
+
+.request-btn{
+    font-weight: bold;
+    margin: 0;
+    border-radius: 0px;
+}
+
+.grid-search input{
+    height: 30px;
+    width: 200px;
+}
+
+.search-btn{
+    height: 30px;
+    width: 30px;
+    line-height: 15px;
+    margin: 0;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.search-btn:hover{
+    background: #01467D;
+    color: #F2F2F2;
+}
+
+.request-btn:hover{
+    background: #01467D;
+    color: #F2F2F2;
+}
+
+/*===================================
+             GRID
+=====================================*/
+.dataTables_wrapper{
+    margin: 25px auto;
+}
