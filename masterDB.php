@@ -20,7 +20,7 @@
             $newToolingInfo = json_decode($newToolingRequest);
             
             try{
-                $insertNewToolingRequestQuery = "INSERT INTO (PgmMngr,ProdNum,Cust,ProdEng,PckSiz,FstBldDate,SbmDate,SngCkie,WrePntShd,ConShd,Fltrs,PckAsmb,Strip) NewToolingRequests VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                $insertNewToolingRequestQuery = "INSERT INTO NewToolingRequests(PgmMngr,ProdNum,Cust,ProdEng,PckSiz,FstBldDate,SbmDate,SngCkie,WrePntShd,ConShd,Fltrs,PckAsmb,Strip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
         		$params = array($newToolingInfo->PgmMngr, $newToolingInfo->ProdNum, $newToolingInfo->Cust, $newToolingInfo->ProdEng,
                                 $newToolingInfo->PckSiz,$newToolingInfo->FstBldDate,$newToolingInfo->SbmDate,$newToolingInfo->SngCkie,$newToolingInfo->WrePntShd
                                 ,$newToolingInfo->ConShd,$newToolingInfo->Fltrs,$newToolingInfo->PckAsmb,$newToolingInfo->Strip);
