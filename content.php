@@ -17,7 +17,7 @@ include 'filtersToolbar.php';
     </div>-->
         <div class="new-req-cont">
         <span>Create New Request For:</span>
-        <button class="request-btn btn">Tooling</button>
+        <button class="request-btn btn" id="newToolingBtn">Tooling</button>
         <button class="request-btn btn">Shipping Container</button>
         <button class="request-btn btn">Package Record</button>
     </div>
@@ -48,11 +48,14 @@ include 'filtersToolbar.php';
         <tbody id="grid-content">
         </tbody>
     </table>
-    
-
 </div>
-<?php
-//include 'dataGrid/dataGrid.php';
-?>
+
+<!-- FORMS MODALS -->
+<div id="new-tooling-req-modal" class="new-tooling-modal-background">
+    <?php
+    include 'newToolingForm.php';
+    ?>
+</div>
+
 
 

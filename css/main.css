@@ -258,3 +258,178 @@ body {
 .dataTables_wrapper{
     margin: 25px auto;
 }
+
+/*===================================
+             NEW TOOLING WINDOW
+=====================================*/
+.new-tooling-modal-background {
+    position: fixed;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.4);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.new-tooling-form{
+    background: #F2F2F2;
+    width: 50%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+ 
+}
+
+.new-tooling-form-cont{
+    width:100%;
+    padding: 15px 10px;
+}
+
+.form-header{
+    display: flex;
+    padding:5px 8px;
+    background: #ABABAB;
+}
+
+.form-header label{
+    width:95%;
+    text-align: left;
+}
+
+.form-header span{
+    width: 5%;
+}
+
+.form-row{
+    display: flex;
+    width: 80%;
+    margin: 8px auto;
+}
+
+.form-row span{
+    height: 30px;
+    width: 30%;
+    text-align: right;
+}
+
+.form-row input, .form-row select{
+    width: 60%;
+    height: 30px;
+    margin-left:5px;
+}
+
+.form-row .product-no-input{
+    width: 45%;
+    height: 30px;
+}
+
+.form-row .package-size-input{
+    width:15%;
+}
+
+.form-row .size-hint{
+    width:5%;
+    text-align:center;
+}
+
+.lookup-product{
+    width:10%;
+    margin-left:10px;
+    height:30px;
+}
+
+.lookup-product span{
+    width:auto;
+    color:#FFFFFF;
+}
+
+.date-picker-cont{
+    margin-left:5px;
+}
+
+.date-picker-cont p{
+    background: #CDCDCD;
+    height: 30px;
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.date-picker-cont input{
+    margin-left:0px;
+    width: 200px;
+    height: 30px;
+}
+
+.date-picker-cont span{
+    color: #000000;
+    width:auto;
+    height: 30px;
+}
+
+.new-tooling-options{
+    border: 2px solid #ABABAB;
+    padding: 5px 5px;
+    width: 70%;
+    margin: 0px auto 10px auto;
+}
+
+.tooling-option-row{
+    display:flex;
+    margin: 2px 0;
+}
+
+.tooling-option-row span{
+    width:80%;
+    text-align:left;
+    height:30px;
+}
+
+.tooling-option-row select{
+    width:15%;
+    margin: auto;
+    height:30px;
+    
+}
+
+.new-tooling-draws{
+    border: 2px solid #ABABAB;
+    padding: 5px 5px;
+    width: 70%;
+    margin: auto;
+    margin: 0px auto 10px auto;
+}
+
+.tooling-draws-row {
+    display:flex;
+    margin:5px 0px;
+}
+
+.tooling-draws-row span{
+    width:35%;
+    text-align:right;
+    height:30px;
+}
+
+.tooling-draws-row input{
+    margin-left:5px;
+    width:50%;
+    height:30px;
+}
+
+.tooling-draws-row button{
+    width:12%;
+    margin: 0px auto 0px 5px;
+    height:30px;
+}
+
