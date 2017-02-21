@@ -43,6 +43,7 @@ include 'filtersToolbar.php';
                 <th>Customer</th>
                 <th>1st Build</th>
                 <th>Type</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody id="grid-content">

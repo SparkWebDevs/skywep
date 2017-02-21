@@ -41,26 +41,20 @@ $(document).ready(function() {
             tableDataHTML += "<td>"+data[x].PgmMngr+"</td>";
             tableDataHTML += "<td>"+data[x].PckSiz+"</td>";
             tableDataHTML += "<td>"+data[x].ProdNum+"</td>";
-            tableDataHTML += "<td>"+data[x].SbmDate+"</td>";
+            tableDataHTML += "<td>"+data[x].SbmDate.date.slice(0,10)+"</td>";
             tableDataHTML += "<td>"+data[x].Status+"</td>";
             tableDataHTML += "<td>"+data[x].Cust+"</td>";
-            tableDataHTML += "<td>"+data[x].FstBldDate+"</td>";
+            tableDataHTML += "<td>"+data[x].FstBldDate.date.slice(0,10)+"</td>";
             tableDataHTML += "<td>New Tooling</td>";
+            tableDataHTML += "<td><span class='glyphicon glyphicon-pencil' onclick='editRequest("+data[x].IdReq+")'></span></td>";
             tableDataHTML += "</tr>";
         } 
         document.getElementById("grid-content").innerHTML = tableDataHTML;
     }
 
 
-    function randomDate(start, end) {
-        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-    }
-    function getRndNumber(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
-    
-    function lookUp(){
-        //Create a full query of the data per columns
+    function editRequest(id){
+        console.log(id);
     }
     
     function removeFilters(){
@@ -113,7 +107,8 @@ $(document).ready(function() {
 
     function closeToolingModal(){
      $(".new-tooling-modal-background").animate({"top" : "100%"});
-     //$(".sign-up-background").css({"visibility" : "hidden"}); 
+     //$(".sign-up-background").css({"visibility" : "hidden"});
+     clearNewToolingForm();
     }
     
     
@@ -266,6 +261,27 @@ $(document).ready(function() {
         return error;
     }
     
+    function clearNewToolingForm(){
+            document.getElementById("toolingProgramManager").selectedIndex = 0;
+            document.getElementById("toolingProductNumber").value = "";
+            document.getElementById("toolingCustomer").selectedIndex = 0;
+            document.getElementById("packageD1").value = "";
+            document.getElementById("packageD2").value = "";
+            document.getElementById("packageD3").value = "";
+            flatpickr("#firstBuildDateInput").clear();
+                flatpickr("#firstBuildDate", {
+                    wrap: true,
+                    clickOpens: false
+                });
+            document.getElementById("toolingSingleCookie").selectedIndex = 0;
+            document.getElementById("toolingWirePaintShield").selectedIndex = 0;
+            document.getElementById("toolingConformalShield").selectedIndex = 0;
+            document.getElementById("toolingFilters").selectedIndex = 0;
+            document.getElementById("toolingPackageAssembly").value = "";
+            document.getElementById("toolingStrip").value = "";
+            
+            
+    }
     
     function getCurrentDate(){
         
