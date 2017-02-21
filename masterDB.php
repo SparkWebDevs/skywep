@@ -17,13 +17,13 @@
         
         function submitToolingRequest($newToolingRequest){
             global $conn;
-            $newToolingInfo = json_decode($newToolingRequest);
+            $newToolingInfo = json_decode($newToolingRequest,true);
             
             try{
                 $insertNewToolingRequestQuery = "INSERT INTO NewToolingRequests(PgmMngr,ProdNum,Cust,ProdEng,PckSiz,FstBldDate,SbmDate,SngCkie,WrePntShd,ConShd,Fltrs,PckAsmb,Strip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
-        		$params = array($newToolingInfo->PgmMngr, $newToolingInfo->ProdNum, $newToolingInfo->Cust, $newToolingInfo->ProdEng,
-                                $newToolingInfo->PckSiz,$newToolingInfo->FstBldDate,$newToolingInfo->SbmDate,$newToolingInfo->SngCkie,$newToolingInfo->WrePntShd
-                                ,$newToolingInfo->ConShd,$newToolingInfo->Fltrs,$newToolingInfo->PckAsmb,$newToolingInfo->Strip);
+        		$params = array($newToolingInfo['PgmMngr'], $newToolingInfo['ProdNum'], $newToolingInfo['Cust'], $newToolingInfo['ProdEng'],
+                                $newToolingInfo['PckSiz'],$newToolingInfo['FstBldDate'],$newToolingInfo['SbmDate'],$newToolingInfo['SngCkie'],$newToolingInfo['WrePntShd']
+                                ,$newToolingInfo['ConShd'],$newToolingInfo['Fltrs'],$newToolingInfo['PckAsmb'],$newToolingInfo['Strip']);
         		$dataset = sqlsrv_query($conn, $insertNewToolingRequestQuery, $params);
 		
         		if(sqlsrv_rows_affected($dataset) == FALSE){
