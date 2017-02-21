@@ -105,7 +105,7 @@ $(document).ready(function() {
         if(!validateNewToolingForm()){
             //insert the new record on the  new tooling requests table
             //get all the values
-            var toolingRequest = [];
+            var toolingRequest = {};
             toolingRequest["PgmMngr"] = document.getElementById("toolingProgramManager").value;
             toolingRequest["ProdNum"] = document.getElementById("toolingProductNumber").value;
             toolingRequest["Cust"] = document.getElementById("toolingCustomer").value;
