@@ -1,19 +1,21 @@
 var currentData;
 $(document).ready(function() {
     getAllRequests();
-        
-    $('#data-grid').dataTable( {
-        colReorder: true,
-        "pageLength":30
-    } );
-    
-    currentData = $('#data-grid').DataTable();
     setDateInputs();
     
     $('#newToolingBtn').click(function(){
         showToolingModal();
         });
 });
+
+    function setTableProperties(){
+         $('#data-grid').dataTable( {
+        colReorder: true,
+        "pageLength":10
+        } );
+         
+        currentData = $('#data-grid').DataTable();
+    }
 
     function getAllRequests(){
                 $.ajax({
@@ -49,7 +51,15 @@ $(document).ready(function() {
             tableDataHTML += "<td><span class='glyphicon glyphicon-pencil' onclick='editRequest("+data[x].IdReq+")'></span></td>";
             tableDataHTML += "</tr>";
         } 
-        document.getElementById("grid-content").innerHTML = tableDataHTML;
+       
+        if(currentData){
+            currentData.destroy();
+             document.getElementById("grid-content").innerHTML = tableDataHTML;
+             setTableProperties();
+        }else{
+            document.getElementById("grid-content").innerHTML = tableDataHTML;
+             setTableProperties();
+        }
     }
 
 
@@ -143,6 +153,7 @@ $(document).ready(function() {
                      } else {
                             console.log(data);
                             closeToolingModal();
+                            getAllRequests();
                         }
                 }
             });
