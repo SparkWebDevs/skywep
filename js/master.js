@@ -121,6 +121,7 @@ $(document).ready(function() {
             toolingRequest["Strip"] = document.getElementById("toolingStrip").value;
             
             var JSONtoolingRequest = JSON.stringify(toolingRequest);
+            console.log(JSONtoolingRequest);
                 $.ajax({
                 type: "POST",
                 url: 'masterInterface.php',
@@ -255,16 +256,11 @@ $(document).ready(function() {
         var today = new Date();
         var dd; 
         var mm; 
-        var yyyy; 
-        var HH; 
-        var MM;
-        var SS;          
+        var yyyy;        
         dd = today.getDate();
         mm = today.getMonth()+1; //January is 0!
         yyyy = today.getFullYear();
-        HH = today.getHours() + ":";
-        MM = today.getMinutes() + ":";
-        SS = today.getSeconds();
+
         
             if(dd<10) {
             dd='0'+dd;
@@ -273,7 +269,7 @@ $(document).ready(function() {
             if(mm<10) {
             mm='0'+mm;
             } 
-            today = yyyy+'-'+mm+'-'+dd+" "+HH+MM+SS;
+            today = yyyy+'-'+mm+'-'+dd;
             return today;
 
 }
