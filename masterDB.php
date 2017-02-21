@@ -51,7 +51,7 @@
                     $x = 0;
                     $masterResults = [];
         			while($result = sqlsrv_fetch_array($dataset, SQLSRV_FETCH_ASSOC)){
-                     $masterResults[$x] = $results;
+                     $masterResults[$x] = $result;
                         $x++;
                     }        
                     echo json_encode($masterResults);

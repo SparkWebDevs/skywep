@@ -16,7 +16,7 @@ $(document).ready(function() {
 });
 
     function getAllRequests(){
-                    $.ajax({
+                $.ajax({
                 type: "POST",
                 url: 'masterInterface.php',
                 data: {func: "AJAXgetNewToolingRequests"},
