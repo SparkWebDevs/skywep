@@ -111,7 +111,7 @@ $(document).ready(function() {
             toolingRequest["Cust"] = document.getElementById("toolingCustomer").value;
             toolingRequest["ProdEng"] = document.getElementById("toolingProductEngineer").value;
             toolingRequest["PckSiz"] = document.getElementById("packageD1").value + "X" + document.getElementById("packageD2").value +"X"+ document.getElementById("packageD3").value;
-            toolingRequest["FstBldDate"] = document.getElementById("firstBuildDateInfo").value;
+            toolingRequest["FstBldDate"] = document.getElementById("firstBuildDateInput").value;
             toolingRequest["SbmDate"] = getCurrentDate();
             toolingRequest["SngCkie"] = document.getElementById("toolingSingleCookie").value;
             toolingRequest["WrePntShd"] = document.getElementById("toolingWirePaintShield").value;
