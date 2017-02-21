@@ -28,5 +28,9 @@
     function AJAXsubmitToolingRequest($newToolingRequest){
         submitToolingRequest($newToolingRequest);
     }
+    
+    function AJAXgetNewToolingRequests(){
+        getNewToolingRequests();
+    }
 
 ?>

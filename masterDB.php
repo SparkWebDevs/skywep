@@ -38,4 +38,28 @@
             
         }
         
+        function getNewToolingRequests(){
+            global $conn;
+            
+            try{
+                $selectNewToolingRequests = "SELECT * FROM NewToolingRequests";
+        		$dataset = sqlsrv_query($conn, $selectNewToolingRequests);
+		
+        		if(sqlsrv_has_rows($dataset) == FALSE){
+        			echo "no";
+    			}else{
+                    $x = 0;
+                    $masterResults = [];
+        			while($result = sqlsrv_fetch_array($dataset, SQLSRV_FETCH_ASSOC)){
+                     $masterResults[$x] = $results;
+                        $x++;
+                    }        
+                    echo json_encode($masterResults);
+    			}
+
+                }catch (Exception $err) {
+                    echo "no";  
+                }
+        }
+        
 ?>

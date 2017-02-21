@@ -1,6 +1,6 @@
 var currentData;
 $(document).ready(function() {
-    fillDataGrid();
+    getAllRequests();
         
     $('#data-grid').dataTable( {
         colReorder: true,
@@ -15,21 +15,37 @@ $(document).ready(function() {
         });
 });
 
+    function getAllRequests(){
+                    $.ajax({
+                type: "POST",
+                url: 'masterInterface.php',
+                data: {func: "AJAXgetNewToolingRequests"},
+                success: function(data) {
+                     if(data === "no"){
+                    	console.log("Error al recibir new tooling request");
+                     } else {
+                            console.log(data);
+                            fillDataGrid(data);
+                        }
+                }
+            });
+    }
 
-
-    function fillDataGrid(){
+    function fillDataGrid(Data){
+        var data = JSON.parse(Data);
+        console.log(data);
         var tableDataHTML = "";
-        for(var x=0;x<100;x++){
+        for(var x=0;x<data.length;x++){
             tableDataHTML += "<tr>";
-            tableDataHTML += "<td>"+getRndNumber(20000,30000)+"</td>";
-            tableDataHTML += "<td>Javier Martinez</td>";
-            tableDataHTML += "<td>3.0 X 4.0 X 1.9</td>";
-            tableDataHTML += "<td>SKY-"+getRndNumber(6000,6500)+"</td>";
-            tableDataHTML += "<td>10/20/2017</td>";
-            tableDataHTML += "<td>Pending Approval</td>";
-            tableDataHTML += "<td>SparkTechs</td>";
-            tableDataHTML += "<td>10/20/2017</td>";
-            tableDataHTML += "<td>Shipping Container</td>";
+            tableDataHTML += "<td>"+data[x].IdReq+"</td>";
+            tableDataHTML += "<td>"+data[x].PgmMngr+"</td>";
+            tableDataHTML += "<td>"+data[x].PckSiz+"</td>";
+            tableDataHTML += "<td>"+data[x].ProdNum+"</td>";
+            tableDataHTML += "<td>"+data[x].SbmDate+"</td>";
+            tableDataHTML += "<td>"+data[x].Status+"</td>";
+            tableDataHTML += "<td>"+data[x].Cust+"</td>";
+            tableDataHTML += "<td>"+data[x].FstBldDate+"</td>";
+            tableDataHTML += "<td>New Tooling</td>";
             tableDataHTML += "</tr>";
         } 
         document.getElementById("grid-content").innerHTML = tableDataHTML;
