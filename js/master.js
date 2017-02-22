@@ -83,12 +83,12 @@ $(document).ready(function() {
     
     function fillToolingEdit(data){
         var JSONData = JSON.parse(data);
+        console.log(JSONData);
             
             $("#toolingProgramManagerE > option").each(function(i) {
                 if(JSONData.pgmMngr == this.value){
-                    document.getElementById("toolingProgramManager").selectedIndex = i;
+                    document.getElementById("toolingProgramManagerE").selectedIndex = i;
                 }
-                alert(this.text + ' ' + this.value);
             });
             
 
@@ -98,11 +98,14 @@ $(document).ready(function() {
             document.getElementById("packageD1E").value = "";
             document.getElementById("packageD2E").value = "";
             document.getElementById("packageD3E").value = "";
-            flatpickr("#firstBuildDateInputE").clear();
+            
+                flatpickr("#firstBuildDateE").clear();
+            
                 flatpickr("#firstBuildDateE", {
                     wrap: true,
                     clickOpens: false
                 });
+                
             document.getElementById("toolingSingleCookieE").selectedIndex = 0;
             document.getElementById("toolingWirePaintShieldE").selectedIndex = 0;
             document.getElementById("toolingConformalShieldE").selectedIndex = 0;
