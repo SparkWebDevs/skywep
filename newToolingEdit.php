@@ -51,7 +51,7 @@
         <span>1st Build Date*</span>
         <div class="date-picker-cont">
              <p id="firstBuildDateE">
-                <input  id="firstBuildDateInput"  placeholder="Pick" data-input>
+                <input  id="firstBuildDateInputE"  placeholder="Pick" data-input>
                 <a class="input-button" data-toggle><span class="glyphicon glyphicon-calendar"></span></a>
             </p>
         </div>

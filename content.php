@@ -18,7 +18,7 @@ include 'filtersToolbar.php';
         <div class="new-req-cont">
         <span>Create New Request For:</span>
         <button class="request-btn btn" id="newToolingBtn">Tooling</button>
-        <button class="request-btn btn" onclick="showToolingModalEdit();">Shipping Container</button>
+        <button class="request-btn btn">Shipping Container</button>
         <button class="request-btn btn">Package Record</button>
     </div>
     
