@@ -262,7 +262,7 @@ body {
 /*===================================
              NEW TOOLING WINDOW
 =====================================*/
-.new-tooling-modal-background {
+.new-tooling-modal-background, .new-tooling-modal-background-E {
     position: fixed;
     left: 0;
     top: 100%;

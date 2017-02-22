@@ -62,4 +62,24 @@
                 }
         }
         
+        function getToolingRequest($requestId){
+            global $conn;
+            
+            try{
+                $selectToolingRequest = "SELECT * FROM NewToolingRequests WHERE IdReq = ?";
+                $params = array($requestId);
+        		$dataset = sqlsrv_query($conn, $selectToolingRequest, $params);
+		
+        		if(sqlsrv_has_rows($dataset) == FALSE){
+        			echo "no";
+    			}else{
+        			$result = sqlsrv_fetch_array($dataset, SQLSRV_FETCH_ASSOC);
+                    echo json_encode($result);
+    			}
+
+                }catch (Exception $err) {
+                    echo "no";  
+                }
+        }
+        
 ?>

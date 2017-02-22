@@ -18,7 +18,7 @@ include 'filtersToolbar.php';
         <div class="new-req-cont">
         <span>Create New Request For:</span>
         <button class="request-btn btn" id="newToolingBtn">Tooling</button>
-        <button class="request-btn btn">Shipping Container</button>
+        <button class="request-btn btn" onclick="showToolingModalEdit();">Shipping Container</button>
         <button class="request-btn btn">Package Record</button>
     </div>
     
@@ -55,6 +55,12 @@ include 'filtersToolbar.php';
 <div id="new-tooling-req-modal" class="new-tooling-modal-background">
     <?php
     include 'newToolingForm.php';
+    ?>
+</div>
+
+<div id="new-tooling-req-modal-E" class="new-tooling-modal-background-E">
+    <?php
+    include 'newToolingEdit.php';
     ?>
 </div>
 

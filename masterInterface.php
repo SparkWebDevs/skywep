@@ -32,5 +32,9 @@
     function AJAXgetNewToolingRequests(){
         getNewToolingRequests();
     }
+    
+    function AJAXgetToolingRequest($requestId){
+        getToolingRequest($requestId);
+    }
 
 ?>
