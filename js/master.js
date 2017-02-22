@@ -86,18 +86,32 @@ $(document).ready(function() {
         console.log(JSONData);
             
             $("#toolingProgramManagerE > option").each(function(i) {
-                if(JSONData.pgmMngr == this.value){
+                if(JSONData.PgmMngr == this.value){
                     document.getElementById("toolingProgramManagerE").selectedIndex = i;
                 }
             });
             
 
-            document.getElementById("toolingProductNumberE").value = "";
-            document.getElementById("toolingCustomerE").selectedIndex = 0;
-            document.getElementById("toolingProductEngineerE").selectedIndex = 0;
-            document.getElementById("packageD1E").value = "";
-            document.getElementById("packageD2E").value = "";
-            document.getElementById("packageD3E").value = "";
+            document.getElementById("toolingProductNumberE").value = JSONData.ProdNum;
+            
+            $("#toolingCustomerE > option").each(function(i) {
+                if(JSONData.Cust == this.value){
+                    document.getElementById("toolingCustomerE").selectedIndex = i;
+                }
+            });
+            
+            $("#toolingProductEngineerE > option").each(function(i) {
+                if(JSONData.ProdEng == this.value){
+                    document.getElementById("toolingProductEngineerE").selectedIndex = i;
+                }
+            });
+            
+            var packSizeValues = JSONData.PckSiz.split("X");
+            
+
+            document.getElementById("packageD1E").value = packSizeValues[0];
+            document.getElementById("packageD2E").value = packSizeValues[1];
+            document.getElementById("packageD3E").value = packSizeValues[2];
             
                 flatpickr("#firstBuildDateE").clear();
             
@@ -106,10 +120,12 @@ $(document).ready(function() {
                     clickOpens: false
                 });
                 
-            document.getElementById("toolingSingleCookieE").selectedIndex = 0;
-            document.getElementById("toolingWirePaintShieldE").selectedIndex = 0;
-            document.getElementById("toolingConformalShieldE").selectedIndex = 0;
-            document.getElementById("toolingFiltersE").selectedIndex = 0;
+            document.getElementById("firstBuildDateInputE").value = JSONData.FstBldDate.date;
+            
+            document.getElementById("toolingSingleCookieE").selectedIndex = JSONData.SngCkie;
+            document.getElementById("toolingWirePaintShieldE").selectedIndex = JSONData.WrePntShd;
+            document.getElementById("toolingConformalShieldE").selectedIndex = JSONData.ConShd;
+            document.getElementById("toolingFiltersE").selectedIndex = JSONData.Fltrs;
             document.getElementById("toolingPackageAssemblyE").value = JSONData.PckAsmb;
             document.getElementById("toolingStripE").value = JSONData.Strip;
             
@@ -343,7 +359,7 @@ $(document).ready(function() {
             document.getElementById("packageD1").value = "";
             document.getElementById("packageD2").value = "";
             document.getElementById("packageD3").value = "";
-            flatpickr("#firstBuildDateInput").clear();
+            flatpickr("#firstBuildDate").clear();
                 flatpickr("#firstBuildDate", {
                     wrap: true,
                     clickOpens: false
