@@ -120,12 +120,13 @@ $(document).ready(function() {
                     clickOpens: false
                 });
                 
-            document.getElementById("firstBuildDateInputE").value = JSONData.FstBldDate.date;
+            document.getElementById("firstBuildDateInputE").value = JSONData.FstBldDate.date.slice(0,10);
             
-            document.getElementById("toolingSingleCookieE").selectedIndex = JSONData.SngCkie;
-            document.getElementById("toolingWirePaintShieldE").selectedIndex = JSONData.WrePntShd;
-            document.getElementById("toolingConformalShieldE").selectedIndex = JSONData.ConShd;
-            document.getElementById("toolingFiltersE").selectedIndex = JSONData.Fltrs;
+            document.getElementById("toolingSingleCookieE").selectedIndex = JSONData.SngCkie+1;
+            document.getElementById("toolingWirePaintShieldE").selectedIndex = JSONData.WrePntShd+1;
+            document.getElementById("toolingConformalShieldE").selectedIndex = JSONData.ConShd+1;
+            document.getElementById("toolingFiltersE").selectedIndex = JSONData.Fltrs+1;
+            
             document.getElementById("toolingPackageAssemblyE").value = JSONData.PckAsmb;
             document.getElementById("toolingStripE").value = JSONData.Strip;
             
@@ -195,7 +196,7 @@ $(document).ready(function() {
     function closeToolingModalEdit(){
      $(".new-tooling-modal-background-E").animate({"top" : "100%"});
      //$(".sign-up-background").css({"visibility" : "hidden"});
-     clearNewToolingForm();
+     clearNewToolingFormEdit();
     }
     
     
@@ -237,6 +238,12 @@ $(document).ready(function() {
                 }
             });
         }
+    }
+    
+    function updateNewToolingRequest(){
+            if(!validateToolingUpdateForm()){
+                //DO STUFF
+            }
     }
     
     //New Tooling Processing
@@ -351,6 +358,116 @@ $(document).ready(function() {
         return error;
     }
     
+    function validateToolingUpdateForm(){
+          var error = false;
+        
+        //inputs validation
+         if ($("#toolingProgramManagerE").val()  == -1){
+      			$("#toolingProgramManagerE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingProgramManagerE").css({"border": "1px solid #A6A6A6"});
+  				}
+        
+        if ($("#toolingProductNumberE").val()  == ""){
+      			$("#toolingProductNumberE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingProductNumberE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#toolingCustomerE").val()  == -1){
+      			$("#toolingCustomerE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingCustomerE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#toolingProductEngineerE").val()  == -1){
+      			$("#toolingProductEngineerE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingProductEngineerE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#packageD1E").val()  == ""){
+      			$("#packageD1E").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#packageD1E").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#packageD2E").val()  == ""){
+      			$("#packageD2E").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#packageD2E").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#packageD3E").val()  == ""){
+      			$("#packageD3E").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#packageD3E").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#firstBuildDateE input").val()  == ""){
+      			$("#firstBuildDateE input").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#firstBuildDateE input").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        //OPTIONS VALIDATIOn
+        
+        if ($("#toolingSingleCookieE").val()  == -1){
+      			$("#toolingSingleCookieE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingSingleCookieE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#toolingWirePaintShieldE").val()  == -1){
+      			$("#toolingWirePaintShieldE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingWirePaintShieldE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#toolingConformalShieldE").val()  == -1){
+      			$("#toolingConformalShieldE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingConformalShieldE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#toolingFiltersE").val()  == -1){
+      			$("#toolingFiltersE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingFiltersE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        //DRAWINGS VALIDATION
+        
+        if ($("#toolingPackageAssemblyE").val()  == ""){
+      			$("#toolingPackageAssemblyE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingPackageAssemblyE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+        if ($("#toolingStripE").val()  == ""){
+      			$("#toolingStripE").css({"border": "2px solid #CD0612"});
+      			error = true;
+  			}else{
+                    $("#toolingStripE").css({"border": "1px solid #A6A6A6"});
+  				}
+                
+                
+        return error;
+    }
+    
     function clearNewToolingForm(){
             document.getElementById("toolingProgramManager").selectedIndex = 0;
             document.getElementById("toolingProductNumber").value = "";
@@ -370,10 +487,31 @@ $(document).ready(function() {
             document.getElementById("toolingFilters").selectedIndex = 0;
             document.getElementById("toolingPackageAssembly").value = "";
             document.getElementById("toolingStrip").value = "";
-            
-            
+    
     }
     
+
+    function clearNewToolingFormEdit(){
+            document.getElementById("toolingProgramManagerE").selectedIndex = 0;
+            document.getElementById("toolingProductNumberE").value = "";
+            document.getElementById("toolingCustomerE").selectedIndex = 0;
+            document.getElementById("toolingProductEngineerE").selectedIndex = 0;
+            document.getElementById("packageD1E").value = "";
+            document.getElementById("packageD2E").value = "";
+            document.getElementById("packageD3E").value = "";
+            flatpickr("#firstBuildDateE").clear();
+                flatpickr("#firstBuildDateE", {
+                    wrap: true,
+                    clickOpens: false
+                });
+            document.getElementById("toolingSingleCookieE").selectedIndex = 0;
+            document.getElementById("toolingWirePaintShieldE").selectedIndex = 0;
+            document.getElementById("toolingConformalShieldE").selectedIndex = 0;
+            document.getElementById("toolingFiltersE").selectedIndex = 0;
+            document.getElementById("toolingPackageAssemblyE").value = "";
+            document.getElementById("toolingStripE").value = "";
+    
+    }
     function getCurrentDate(){
         
         var today = new Date();
