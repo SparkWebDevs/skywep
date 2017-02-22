@@ -84,31 +84,33 @@ $(document).ready(function() {
     function fillToolingEdit(data){
         var JSONData = JSON.parse(data);
             
-            $("#toolingProgramManager > option").each(function(i) {
+            $("#toolingProgramManagerE > option").each(function(i) {
                 if(JSONData.pgmMngr == this.value){
                     document.getElementById("toolingProgramManager").selectedIndex = i;
                 }
                 alert(this.text + ' ' + this.value);
             });
             
-            document.getElementById("toolingProgramManager").selectedIndex = 0;
-            document.getElementById("toolingProductNumber").value = "";
-            document.getElementById("toolingCustomer").selectedIndex = 0;
-            document.getElementById("toolingProductEngineer").selectedIndex = 0;
-            document.getElementById("packageD1").value = "";
-            document.getElementById("packageD2").value = "";
-            document.getElementById("packageD3").value = "";
-            flatpickr("#firstBuildDateInput").clear();
-                flatpickr("#firstBuildDate", {
+
+            document.getElementById("toolingProductNumberE").value = "";
+            document.getElementById("toolingCustomerE").selectedIndex = 0;
+            document.getElementById("toolingProductEngineerE").selectedIndex = 0;
+            document.getElementById("packageD1E").value = "";
+            document.getElementById("packageD2E").value = "";
+            document.getElementById("packageD3E").value = "";
+            flatpickr("#firstBuildDateInputE").clear();
+                flatpickr("#firstBuildDateE", {
                     wrap: true,
                     clickOpens: false
                 });
-            document.getElementById("toolingSingleCookie").selectedIndex = 0;
-            document.getElementById("toolingWirePaintShield").selectedIndex = 0;
-            document.getElementById("toolingConformalShield").selectedIndex = 0;
-            document.getElementById("toolingFilters").selectedIndex = 0;
-            document.getElementById("toolingPackageAssembly").value = "";
-            document.getElementById("toolingStrip").value = "";
+            document.getElementById("toolingSingleCookieE").selectedIndex = 0;
+            document.getElementById("toolingWirePaintShieldE").selectedIndex = 0;
+            document.getElementById("toolingConformalShieldE").selectedIndex = 0;
+            document.getElementById("toolingFiltersE").selectedIndex = 0;
+            document.getElementById("toolingPackageAssemblyE").value = JSONData.PckAsmb;
+            document.getElementById("toolingStripE").value = JSONData.Strip;
+            
+            showToolingModalEdit();
     }
     
     function removeFilters(){
